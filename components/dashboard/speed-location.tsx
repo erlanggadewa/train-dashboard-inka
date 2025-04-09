@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Label } from "@/components/ui/label"
-import { Input } from "@/components/ui/input"
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 export function SpeedLocation() {
   return (
@@ -12,13 +12,22 @@ export function SpeedLocation() {
         <div className="flex items-center justify-between">
           <CardTitle className="text-sm">Speed & Location</CardTitle>
           <div className="flex gap-2">
-            <Badge variant="outline" className="bg-white/20 text-white hover:bg-white/30">
+            <Badge
+              variant="outline"
+              className="bg-white/20 text-white hover:bg-white/30"
+            >
               B1-B7
             </Badge>
-            <Badge variant="outline" className="bg-white/20 text-white hover:bg-white/30">
+            <Badge
+              variant="outline"
+              className="bg-white/20 text-white hover:bg-white/30"
+            >
               P1-P7
             </Badge>
-            <Badge variant="outline" className="bg-white/20 text-white hover:bg-white/30">
+            <Badge
+              variant="outline"
+              className="bg-white/20 text-white hover:bg-white/30"
+            >
               EB
             </Badge>
           </div>
@@ -54,7 +63,12 @@ export function SpeedLocation() {
                 </svg>
                 Longitude
               </Label>
-              <Input id="longitude" value="35.6895" className="h-9" readOnly />
+              <Input
+                id="longitude"
+                value="35.6895"
+                className="h-9 mt-2"
+                readOnly
+              />
             </div>
             <div>
               <Label htmlFor="latitude" className="flex items-center gap-2">
@@ -76,7 +90,12 @@ export function SpeedLocation() {
                 </svg>
                 Latitude
               </Label>
-              <Input id="latitude" value="139.6917" className="h-9" readOnly />
+              <Input
+                id="latitude"
+                value="139.6917"
+                className="h-9 mt-2"
+                readOnly
+              />
             </div>
             <div>
               <Label htmlFor="travel-dist" className="flex items-center gap-2">
@@ -103,14 +122,22 @@ export function SpeedLocation() {
                 </svg>
                 Travel Distance
               </Label>
-              <Input id="travel-dist" value="127.5 km" className="h-9" readOnly />
+              <Input
+                id="travel-dist"
+                value="127.5 km"
+                className="h-9 mt-2"
+                readOnly
+              />
             </div>
           </div>
         </div>
         <div className="mt-4">
           <div className="mb-2 text-sm font-medium">Air Pressure Bar</div>
           <div className="h-2 w-full rounded-full bg-gray-200">
-            <div className="h-2 rounded-full bg-lime-500" style={{ width: "65%" }}></div>
+            <div
+              className="h-2 rounded-full bg-lime-500"
+              style={{ width: "65%" }}
+            ></div>
           </div>
           <div className="mt-1 flex justify-between text-xs text-muted-foreground">
             <span>0</span>
@@ -122,5 +149,5 @@ export function SpeedLocation() {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }

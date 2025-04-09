@@ -1,21 +1,44 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from "recharts"
-import { ChartContainer } from "@/components/ui/chart"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { ChartContainer } from "@/components/ui/chart";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Bar,
+  BarChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 
 const data = [
-  { time: "00:00", current: 40 },
-  { time: "01:00", current: 30 },
-  { time: "02:00", current: 20 },
-  { time: "03:00", current: 27 },
-  { time: "04:00", current: 18 },
-  { time: "05:00", current: 23 },
-  { time: "06:00", current: 34 },
-  { time: "07:00", current: 45 },
-]
+  { time: "00:00", current: 28 },
+  { time: "01:00", current: 27 },
+  { time: "02:00", current: 16 },
+  { time: "03:00", current: 20 },
+  { time: "04:00", current: 9 },
+  { time: "05:00", current: 33 },
+  { time: "06:00", current: 19 },
+  { time: "07:00", current: 52 },
+  { time: "08:00", current: 46 },
+  { time: "09:00", current: 55 },
+  { time: "10:00", current: 54 },
+  { time: "11:00", current: 42 },
+  { time: "12:00", current: 100 },
+  { time: "13:00", current: 54 },
+  { time: "14:00", current: 19 },
+  { time: "15:00", current: 23 },
+  { time: "16:00", current: 93 },
+  { time: "17:00", current: 79 },
+  { time: "18:00", current: 35 },
+  { time: "19:00", current: 85 },
+  { time: "20:00", current: 52 },
+  { time: "21:00", current: 50 },
+  { time: "22:00", current: 22 },
+  { time: "23:00", current: 26 },
+];
 
 export function EnergyMeter() {
   return (
@@ -44,20 +67,35 @@ export function EnergyMeter() {
         </div>
         <div className="mt-4">
           <h4 className="mb-2 text-sm font-medium">Current/Time Histogram</h4>
-          <div className="h-40">
+          <div>
             <ChartContainer
               config={{
                 current: {
                   label: "Current",
-                  color: "hsl(var(--chart-1))",
+                  color: "teal",
                 },
               }}
             >
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={data}>
-                  <XAxis dataKey="time" fontSize={12} tickLine={false} axisLine={false} />
-                  <YAxis fontSize={12} tickLine={false} axisLine={false} tickFormatter={(value) => `${value}A`} />
-                  <Bar dataKey="current" fill="var(--color-current)" radius={[4, 4, 0, 0]} />
+                <BarChart
+                  data={data}
+                  margin={{ top: 0, right: 0, left: 0, bottom: 0 }}
+                >
+                  <XAxis
+                    dataKey="time"
+                    fontSize={12}
+                    tickLine={false}
+                    axisLine={false}
+                  />
+                  <YAxis
+                    fontSize={12}
+                    tickLine={false}
+                    axisLine={false}
+                    tickFormatter={(value) => `${value}A`}
+                  />
+                  <Tooltip />
+
+                  <Bar dataKey="current" fill="teal" radius={[4, 4, 0, 0]} />
                 </BarChart>
               </ResponsiveContainer>
             </ChartContainer>
@@ -65,5 +103,5 @@ export function EnergyMeter() {
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }

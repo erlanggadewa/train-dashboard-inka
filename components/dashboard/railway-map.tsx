@@ -1,16 +1,28 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import dynamic from "next/dynamic";
+import { useMemo } from "react";
 
 export function RailwayMap() {
+  const Map = useMemo(
+    () =>
+      dynamic(() => import("@/components/ui/map"), {
+        loading: () => <p>A map is loading</p>,
+        ssr: false,
+      }),
+    []
+  );
   return (
     <Card id="railway-map" className="overflow-hidden">
       <CardHeader className="bg-sky-600 text-white">
         <CardTitle className="text-lg">Railway Map</CardTitle>
       </CardHeader>
       <CardContent className="p-0">
-        <div className="aspect-video bg-sky-50 p-4">
-          <div className="flex h-full flex-col items-center justify-center">
+        <div className="aspect-video bg-sky-50 ">
+          <Map posix={[-7.725913, 109.907532]} />
+
+          {/* <div className="flex h-full flex-col items-center justify-center">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -30,9 +42,9 @@ export function RailwayMap() {
             <p className="mt-4 text-center text-sm text-muted-foreground">
               Interactive railway map would be displayed here, showing the current train location and route.
             </p>
-          </div>
+          </div> */}
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }
