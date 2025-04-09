@@ -1,19 +1,46 @@
-"use client"
+"use client";
 
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Badge } from "@/components/ui/badge"
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
 
 const statusColors = {
   active: "bg-green-500",
   warning: "bg-yellow-500",
   error: "bg-red-500",
   critical: "bg-red-600",
-}
+};
 
 const powerData = [
-  { id: "siv", name: "SIV", set: "750", operate: "748", flt: "0", rh: "24", temp: "65", unit: "V", status: "active" },
-  { id: "vvvf", name: "VVVF", set: "380", operate: "375", flt: "0", rh: "24", temp: "72", unit: "V", status: "active" },
+  {
+    id: "siv",
+    name: "SIV",
+    set: "750",
+    operate: "748",
+    flt: "0",
+    rh: "24",
+    temp: "65",
+    unit: "V",
+    status: "active",
+  },
+  {
+    id: "vvvf",
+    name: "VVVF",
+    set: "380",
+    operate: "375",
+    flt: "0",
+    rh: "24",
+    temp: "72",
+    unit: "V",
+    status: "active",
+  },
   {
     id: "pant",
     name: "PANT",
@@ -25,7 +52,7 @@ const powerData = [
     unit: "kV",
     status: "warning",
   },
-]
+];
 
 export function PowerMaintenance() {
   return (
@@ -46,6 +73,7 @@ export function PowerMaintenance() {
                 <TableHead>R/H</TableHead>
                 <TableHead>Temp</TableHead>
                 <TableHead>Unit</TableHead>
+                <TableHead>Status</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -58,6 +86,20 @@ export function PowerMaintenance() {
                   <TableCell>{item.rh}</TableCell>
                   <TableCell>{item.temp}</TableCell>
                   <TableCell>{item.unit}</TableCell>
+                  <TableCell>
+                    <Badge
+                      variant="outline"
+                      className="flex items-center gap-1.5"
+                    >
+                      <span
+                        className={`h-2 w-2 rounded-full ${
+                          statusColors[item.status]
+                        }`}
+                      ></span>
+                      {item.status.charAt(0).toUpperCase() +
+                        item.status.slice(1)}
+                    </Badge>
+                  </TableCell>
                 </TableRow>
               ))}
             </TableBody>
@@ -94,8 +136,15 @@ export function PowerMaintenance() {
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Status:</span>
-                  <Badge variant="outline" className="flex items-center gap-1.5">
-                    <span className={`h-2 w-2 rounded-full ${statusColors[item.status]}`}></span>
+                  <Badge
+                    variant="outline"
+                    className="flex items-center gap-1.5"
+                  >
+                    <span
+                      className={`h-2 w-2 rounded-full ${
+                        statusColors[item.status]
+                      }`}
+                    ></span>
                     {item.status.charAt(0).toUpperCase() + item.status.slice(1)}
                   </Badge>
                 </div>
@@ -108,24 +157,32 @@ export function PowerMaintenance() {
           <div className="mb-2 text-sm font-medium">Status Log</div>
           <div className="flex flex-wrap gap-2">
             <Badge variant="outline" className="flex items-center gap-1.5">
-              <span className={`h-2 w-2 rounded-full ${statusColors.active}`}></span>
+              <span
+                className={`h-2 w-2 rounded-full ${statusColors.active}`}
+              ></span>
               Active
             </Badge>
             <Badge variant="outline" className="flex items-center gap-1.5">
-              <span className={`h-2 w-2 rounded-full ${statusColors.warning}`}></span>
+              <span
+                className={`h-2 w-2 rounded-full ${statusColors.warning}`}
+              ></span>
               Warning
             </Badge>
             <Badge variant="outline" className="flex items-center gap-1.5">
-              <span className={`h-2 w-2 rounded-full ${statusColors.error}`}></span>
+              <span
+                className={`h-2 w-2 rounded-full ${statusColors.error}`}
+              ></span>
               Error
             </Badge>
             <Badge variant="outline" className="flex items-center gap-1.5">
-              <span className={`h-2 w-2 rounded-full ${statusColors.critical}`}></span>
+              <span
+                className={`h-2 w-2 rounded-full ${statusColors.critical}`}
+              ></span>
               Critical
             </Badge>
           </div>
         </div>
       </CardContent>
     </Card>
-  )
+  );
 }

@@ -21,6 +21,7 @@ const Map = (Map: MapProps) => {
 
   return (
     <MapContainer
+      className="z-10"
       center={posix}
       zoom={zoom}
       scrollWheelZoom={false}

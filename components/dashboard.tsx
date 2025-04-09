@@ -101,22 +101,26 @@ export default function Dashboard() {
       <div className="flex-1">
         <div className="container mx-auto p-4 md:p-6">
           <div className="grid gap-6">
-            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              <PowerMaintenance />
-              <DoorMaintenance />
-              <PowerMonitoring />
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-5">
+              <div className="gap-6 grid lg:col-span-2">
+                <PowerMonitoring />
+                <BogieMonitoring />
+              </div>
+              <CarTransformation />
             </div>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
               <EnergyMeter />
               <CompressorMaintenance />
             </div>
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
-              <CarTransformation />
+              <DoorMaintenance />
+
               <div className="grid gap-6">
                 {/* <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                   <PowerMonitoring />
                   </div> */}
-                <BogieMonitoring />
+                <PowerMaintenance />
+
                 <SpeedLocation />
               </div>
             </div>
