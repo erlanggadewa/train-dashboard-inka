@@ -10,6 +10,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Input } from "../ui/input";
+import { Label } from "../ui/label";
 
 const statusColors = {
   active: "bg-green-500",
@@ -153,7 +155,7 @@ export function PowerMaintenance() {
           ))}
         </div>
 
-        <div className="mt-4">
+        <div className="my-4">
           <div className="mb-2 text-sm font-medium">Status Log</div>
           <div className="flex flex-wrap gap-2">
             <Badge variant="outline" className="flex items-center gap-1.5">
@@ -180,6 +182,30 @@ export function PowerMaintenance() {
               ></span>
               Critical
             </Badge>
+          </div>
+        </div>
+        <div className="flex-1 space-y-3">
+          <div>
+            <Label htmlFor="log" className="flex items-center gap-2">
+              LOG
+              <Input
+                id="log"
+                value="Log kereta"
+                className="h-9 mt-2"
+                readOnly
+              />
+            </Label>
+          </div>
+          <div>
+            <Label htmlFor="act" className="flex items-center gap-2">
+              ACT
+              <Input
+                id="act"
+                value="Act Kereta"
+                className="h-9 mt-2"
+                readOnly
+              />
+            </Label>
           </div>
         </div>
       </CardContent>
